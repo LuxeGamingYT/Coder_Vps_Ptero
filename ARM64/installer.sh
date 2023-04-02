@@ -76,14 +76,14 @@ echo "⚙️  Versão do Script: ${version_script}"
             version_system=" $(cat ./libraries/version_system) " 
             if [ $version_system = "true" ]; then
                 if [ $comm1 -ge $comm2  ]; then
-                    echo "✅  Egg Atualizado."
+                    echo "✅  Egg gestart."
                 else
                     echo "
     
-⚠️  Egg Desatualizado.
-🔴  Versão Instalado: ${versions}
-🟢  Versão mais Recente: ${version_egg}
-🌐  Acesse: https://github.com/Ashu11-A/Ashu_eggs
+⚠️  Egg Verouderd.
+🔴  Geïnstalleerde versie: ${versions}
+🟢  Laatste versie: ${version_egg}
+🌐  Github: https://github.com/LuxeGamingYT/Coder_Vps_Ptero
     
 "
                 fi
@@ -92,15 +92,15 @@ echo "⚙️  Versão do Script: ${version_script}"
     else
         echo "
     
-⚠️  Egg Desatualizado.
-🔴  Versão Instalado: 1.0 (respectivamente).
-🟠  Caso tenha acabado de atualizar o Egg, basta Reinstalar seu Servidor (nada será apagado).
-🟢  Versão mais Recente: ${version_egg}
-🌐  Acesse: https://github.com/Ashu11-A/Ashu_eggs
+⚠️  Egg Verouderd.
+🔴  Geïnstalleerde versie: 1.0
+🟠  Als je zojuist de Egg hebt geüpdatet, installeer dan gewoon je server opnieuw (er wordt niets verwijderd).
+🟢  Laatste versie: ${version_egg}
+🌐  Github: https://github.com/LuxeGamingYT/Coder_Vps_Ptero
     
 "
     fi
-    echo "✅  Iniciando VPS"
+    echo "✅  VPS Gestart"
     echo "${bold}${lightgreen}==> ${lightblue}Container${lightgreen} Iniciado <=="
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
@@ -116,24 +116,24 @@ echo "⚙️  Versão do Script: ${version_script}"
     }
     runcmd
 else
-    echo "${bold}${lightblue}                    ...Arquitetura aarch64 detectada..."
-    echo "${bold}${lightblue}          ...ISTO PODE DEMORAR MAIS DE 15 MINUTOS SEJA PACIENTE..."
+    echo "${bold}${lightblue}                  ...aarch64-architectuur gedetecteerda..."
+    echo "${bold}${lightblue}          ...DIT KAN MEER DAN 15 MINUTEN DUREN, WEES GEDULDIG..."
     if [ $LINUX_ISO = "Ubuntu" ]; then
-    echo "${redback} NÃO ESTÁ FUNCIONADO A DISTRO UBUNTU NO MOMENTO!!"
+    echo "${redback} DE UBUNTU DISTRO WERKT MOMENTEEL NIET!!"
     exit
     fi
-    echo  "${bold}${lightred} Distribuições Debian/Ubuntu podem levar mais de 15min para terminar a instalação."
-    echo "⚙️  Versão do Script: ${version_script}"
-    echo "Baixando arquivos para iniciar a vps"
+    echo  "${bold}${lightred} Debian/Ubuntu-distributies kunnen meer dan 15 minuten nodig hebben om de installatie te voltooien."
+    echo "⚙️  Scriptversie: ${version_script}"
+    echo "Bestanden downloaden om vps te starten"
     mkdir libraries
-    echo "Disto Instalada: $LINUX_ISO" > libraries/distro_installed
+    echo "Disto geïnstalleerd: $LINUX_ISO" > libraries/distro_installed
     echo "true" > libraries/version_system
     curl -sSLo ./libraries/proot https://github.com/proot-me/proot/releases/download/v5.3.0/proot-v5.3.0-aarch64-static >/dev/null 2>libraries/err.log
     echo  '#                   (5%)'
     curl -sSLo root.tar.xz $linux_iso >/dev/null 2>libraries/err.log
     echo  '##                  (10%)'
     if [ $LINUX_ISO = "Alpine" ]; then
-        echo  'Pulando Download de arquivos incompatíveis com o Alpine.'
+        echo  'Overslaan Bestanden downloaden die niet compatibel zijn met Alpine.'
     else
         curl -sSLo ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz >/dev/null 2>libraries/err.log
         echo  '####                (20%)'
@@ -171,7 +171,7 @@ else
     if [ $LINUX_ISO = "Alpine" ]; then
         echo  '############        (80%)'
     else
-        echo  "${bold}${lightred} Distribuições Debian/Ubuntu podem levar mais de 15min para terminar a instalação."
+        echo  "${bold}${lightred} Debian/Ubuntu-distributies kunnen meer dan 15 minuten nodig hebben om de installatie te voltooien."
     fi
 
     for cmd in "${cmds[@]}"; do
