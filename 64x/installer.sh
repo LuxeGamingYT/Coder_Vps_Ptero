@@ -101,19 +101,19 @@ if [[ -f "./libraries/instalado" ]]; then
     if [ "${PROOT}" = "PRoot-rs" ]; then
         echo "
 
-${bold}${lightred}⛔️  Root executado a partir do PRoot-rs, você sabe oque está fazendo?
+${bold}${lightred}⛔️  Root run van Porto-rs, weet je wat je doet?
         "
     fi
     if [ "${PROOT}" = "FakechRoot + FakeRoot" ]; then
         echo "
 
-${bold}${lightred}⛔️  Root executado a partir do FakechRoot + FakeRoot, você sabe oque está fazendo?
-${bold}${lightred}⛔️  Para utilizar essa variável, você tem que estar usado o docker: ashu11a/proot:latest
+${bold}${lightred}⛔️  Root uitgevoerd vanuit FakechRoot + FakeRoot, weet je wat je doet?
+${bold}${lightred}⛔️  Om deze variabele te gebruiken, moet u docker gebruiken: ashu11a/proot:latest
         "
     fi
     bash <(curl -s https://raw.githubusercontent.com/Ashu11-A/Ashu_eggs/main/vps/version.sh)
-    echo "✅  Iniciando VPS"
-    echo "${bold}${lightgreen}==> ${lightblue}Container${lightgreen} Iniciado <=="
+    echo "✅  VPS starten"
+    echo "${bold}${lightgreen}==> ${lightblue}Container${lightgreen} Gestart <=="
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
@@ -128,26 +128,26 @@ ${bold}${lightred}⛔️  Para utilizar essa variável, você tem que estar usad
     }
     runcmd
 else
-    echo "${bold}${lightblue}🔎  Arquitetura Identificada: 64x"
+    echo "${bold}${lightblue}🔎  Geïdentificeerde architectuur: 64x"
     if [ $LINUX_ISO = "Ubuntu" ]; then
-    echo "${redback} A DISTRO UBUNTU NÃO ESTÁ FUNCIONADO NO MOMENTO!!"
+    echo "${redback} DE UBUNTU DISTRO WERKT MOMENTEEL NIET!!"
     exit
     fi
     if [ $install = "1" ]; then
     echo  "
-📌  Variavel: (Instalação Limpa) 🟢  Ativada
-📌  Os seguintes pacotes não serão Instalados: sudo wget hwloc htop nano neofetch ngrok gotty curl
+📌  Variabele: (Schone installatie) 🟢 Ingeschakeld
+📌  De volgende pakketten kunnen niet worden geïnstalleerd: sudo wget hwloc htop nano neofetch ngrok gotty curl
     "
     else
     echo  "${bold}${lightred}⚠️  Distribuições Debian/Ubuntu podem levar mais de 15min para terminar a instalação."
     fi
-    echo "📥  Baixando arquivos para instalação da vps"
+    echo "📥  Bestanden downloaden voor vps-installatie"
     if [ -d libraries ]; then
-    echo "Pasta libraries já existe, pulando..."
+    echo "De map Bibliotheken bestaat al, wordt overgeslagen..."
     else
     mkdir libraries
     fi
-    echo "Disto Instalada: $LINUX_ISO" > libraries/distro_installed
+    echo "Disto geïnstalleerd: $LINUX_ISO" > libraries/distro_installed
     echo "true" > libraries/version_system
     curl -sSLo ./libraries/proot https://github.com/proot-me/proot/releases/download/v5.3.0/proot-v5.3.0-x86_64-static >/dev/null 2>libraries/err.log
     curl -sSLo proot-rs-x86_64.tar.gz https://github.com/proot-me/proot-rs/releases/download/v0.1.0/proot-rs-v0.1.0-x86_64-unknown-linux-gnu.tar.gz >/dev/null 2>libraries/err.log
@@ -155,7 +155,7 @@ else
     curl -sSLo root.tar.xz $linux_iso >/dev/null 2>libraries/err.log
     echo  '##                  (10%)'
     if [ $LINUX_ISO = "Alpine" ]; then
-        echo  'Pulando Download de arquivos incompatíveis com o Alpine.'
+        echo  'Overslaan Bestanden downloaden die niet compatibel zijn met Alpine.'
     else
         if [ $install = "0" ]; then
             curl -sSLo ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz >/dev/null 2>libraries/err.log
@@ -204,7 +204,7 @@ else
         echo  '############        (80%)'
     else
         if [ $install = "0" ]; then
-            echo  "${bold}${lightred}⚠️  Essa é a etapa mais demorada, pode levar até 15min para termina-la"
+            echo  "${bold}${lightred}⚠️  Dit is de meest tijdrovende stap, het kan tot 15 minuten duren om te voltooien."
         fi
     fi
 
@@ -234,7 +234,7 @@ ${bold}${lightgreen}============================================================
  
     echo "${nc}"
     bash <(curl -s https://raw.githubusercontent.com/Ashu11-A/Ashu_eggs/main/vps/version.sh)
-    echo "${bold}${lightgreen}==> ${lightblue}Container${lightgreen} Iniciado <=="
+    echo "${bold}${lightgreen}==> ${lightblue}Container${lightgreen} Gestart <=="
     function runcmd1 {
         printf "${bold}${lightgreen}Default${nc}@${lightblue}Container${nc}:~ "
         read -r cmdtorun
